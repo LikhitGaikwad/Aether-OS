@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chatbot.db:/app/chatbot.db
+    environment:
+      - GOOGLE_API_KEY=AIzaSyA_SvS5dIijAa-uIbzd4WsCqFzctedicso
+
+  frontend:
+    build:
+      context: C:\Users\Likhit Gaikwad\Desktop\aether-os
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
