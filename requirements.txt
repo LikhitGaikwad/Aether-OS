@@ -13,5 +13,6 @@ faiss-cpu
 pypdf
 aiosqlite
 duckduckgo-search
+ddgs
 pydantic
 langgraph-prebuilt==1.0.2
