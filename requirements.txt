@@ -14,3 +14,4 @@ pypdf
 aiosqlite
 duckduckgo-search
 pydantic
+langgraph-prebuilt==1.0.2
