@@ -40,12 +40,12 @@ from langchain_core.prompts import ChatPromptTemplate
 # -------------------
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
-    google_api_key="AIzaSyA_SvS5dIijAa-uIbzd4WsCqFzctedicso",
+    google_api_key="your_key_here",
 )
 
 embeddings = GoogleGenerativeAIEmbeddings(
     model="models/gemini-embedding-001",
-    google_api_key="AIzaSyA_SvS5dIijAa-uIbzd4WsCqFzctedicso",
+    google_api_key="your_key_here",
 )
 
 UPPER_TH = 0.7
