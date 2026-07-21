@@ -89,25 +89,25 @@ The application follows a **full-stack architecture** with:
 
 ## Home
 
-![Home](docs/app-home.png)
+![Home](Deployment/App home.png)
 
 ---
 
 ## API Documentation
 
-![API](docs/fastapi-docs.png)
+![API](Deployment/fastapi-docs.png)
 
 ---
 
 ## Docker Containers
 
-![Docker](docs/docker-compose-ps.png)
+![Docker](Deployment/docker-ps.png)
 
 ---
 
 ## AWS EC2 Deployment
 
-![AWS](docs/ec2-instance.png)
+![AWS](Deployment/ec2-instance.png)
 
 ---
 
