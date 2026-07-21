@@ -1,126 +1,172 @@
-# 🚀 Aether OS – Multi-Agent AI Assistant
+<div align="center">
+
+# 🚀 Aether-OS
+
+### Multi-Agent AI Assistant powered by LangGraph, MCP & Corrective RAG
+
+<p align="center">
+  <strong>Build intelligent AI assistants with multi-agent orchestration, tool calling, document understanding, and hybrid retrieval.</strong>
+</p>
 
 <p align="center">
 
-![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)
-![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react)
-![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker)
-![AWS](https://img.shields.io/badge/AWS-EC2-FF9900?logo=amazonaws)
-![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite)
+![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?style=for-the-badge&logo=fastapi)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker)
+![AWS](https://img.shields.io/badge/AWS-EC2-FF9900?style=for-the-badge&logo=amazonaws)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite)
 ![License](https://img.shields.io/badge/License-MIT-green)
-
 </p>
 
----
+</div>
 
-## 🌟 Overview
+# 🌟 Overview
 
-Aether OS is a **Dockerized Multi-Agent AI Assistant** that intelligently routes user queries to specialized tools and services through an agent orchestration framework.
+Aether-OS is a **Dockerized Multi-Agent AI Assistant** that intelligently routes user queries across specialized tools using **LangGraph**, **Model Context Protocol (MCP)**, and **Corrective Retrieval-Augmented Generation (CRAG)**.
 
-The system integrates multiple AI-powered capabilities such as mathematical computation, information retrieval, visualization, and conversational reasoning while maintaining persistent conversation history.
+The system combines conversational AI, document understanding, semantic search, mathematical computation, and external tool execution into a unified agentic workflow.
 
-The application follows a **full-stack architecture** with:
+Built with a modern full-stack architecture, Aether-OS provides persistent conversation memory, intelligent retrieval, and scalable deployment on AWS EC2.
 
-- ⚡ FastAPI Backend
-- 🎨 React Frontend
-- 🤖 Multi-Agent AI Workflow
-- 🧠 LangGraph-based Orchestration
-- 🗄 SQLite Chat Persistence
-- 🐳 Dockerized Deployment
-- ☁ AWS EC2 Hosting
+# ✨ Key Features
 
----
+- 🤖 **Multi-Agent AI Assistant** powered by **Google Gemini 2.5 Flash**
+- 🧠 **LangGraph State Graph** for intelligent agent orchestration
+- 🔌 **Model Context Protocol (MCP)** integration for dynamic tool execution
+- 📚 **Retrieval-Augmented Generation (RAG)** for document-based question answering
+- ✅ **Corrective RAG (CRAG)** with retrieval quality evaluation and intelligent routing
+- 🔄 **Automatic Query Rewriting** to improve retrieval accuracy
+- 🌐 **Hybrid Retrieval** combining FAISS vector search with DuckDuckGo web search
+- 📄 **PDF Upload & Document Understanding** using semantic chunking and embeddings
+- 🔍 **Semantic Search** powered by Google Gemini Embeddings and FAISS
+- 🧮 **FastMCP Math Server** for mathematical computations
+- 💰 **Expense Tracker MCP Server** integration
+- ⚡ **Asynchronous Tool Execution** using AsyncIO
+- 💬 **Persistent Multi-Thread Conversation Memory** using SQLite checkpoints
+- 🔄 **Dynamic Tool Routing** with LangGraph ToolNode
+- 🌍 **RESTful API Backend** built with FastAPI
+- 🎨 **Responsive React Frontend** for seamless user interaction
+- 🐳 **Dockerized Deployment** with Docker Compose
+- ☁️ **Cloud Deployment** on AWS EC2
 
-# 🎯 Features
-
-✅ Multi-Agent Query Routing
-
-✅ AI Chat Interface
-
-✅ Persistent Chat History
-
-✅ Tool Calling
-
-✅ Mathematical Computation
-
-✅ Modular Agent Architecture
-
-✅ REST API Backend
-
-✅ Responsive React Frontend
-
-✅ Dockerized Deployment
-
-✅ Cloud Deployment on AWS EC2
-
----
-
-# 🏗 System Architecture
+# 🏗️ System Architecture
 
 ```
-                    User
-                      │
-                      ▼
-              React Frontend
-             (Port 3000)
-                      │
-          REST API Requests
-                      │
-                      ▼
-              FastAPI Backend
-              (Port 8000)
-                      │
-          ┌───────────┼────────────┐
-          │           │            │
-          ▼           ▼            ▼
-     LangGraph    AI Agents     Tool Calls
-          │
-          ▼
-     SQLite Database
-          │
-          ▼
- Persistent Chat Memory
+                          User
+                            │
+                            ▼
+                    React Frontend
+                       (Port 3000)
+                            │
+                    REST API Requests
+                            │
+                            ▼
+                    FastAPI Backend
+                       (Port 8000)
+                            │
+                  LangGraph State Graph
+                            │
+        ┌───────────────────┼────────────────────┐
+        │                   │                    │
+        ▼                   ▼                    ▼
+  CRAG Engine         MCP Tool Router      DuckDuckGo Search
+        │                   │
+        ▼                   │
+   FAISS Vector DB          │
+        │                   │
+        ▼                   ▼
+ Uploaded PDFs      FastMCP Math Server
+                    Expense Tracker API
+                            │
+                            ▼
+                   Google Gemini 2.5 Flash
+                            │
+                            ▼
+                 SQLite Conversation Memory
 ```
-
-# ⚙ Tech Stack
-
-## Backend
-
-- Python 3.10
-- FastAPI
-- Uvicorn
-- LangChain
-- LangGraph
-- LangGraph Checkpoint
-- Pydantic
-- SQLite
-- AioSQLite
 
 ---
 
-## Frontend
+## ⚙️ Workflow
+
+1. User submits a query through the React frontend.
+2. The request is sent to the FastAPI backend.
+3. LangGraph orchestrates the AI workflow.
+4. The assistant determines whether the query requires:
+   - Document retrieval (RAG)
+   - Tool execution through MCP
+   - Web search fallback
+   - Direct LLM response
+5. For document queries, CRAG evaluates retrieval quality and automatically rewrites the query or performs web search if necessary.
+6. The final response is generated by Google Gemini and returned to the frontend.
+7. Conversation history is persisted using SQLite checkpoints.
+
+# ⚙️ Tech Stack
+
+## 💻 Backend
+
+- **Language:** Python 3.10
+- **Framework:** FastAPI
+- **Server:** Uvicorn
+- **Validation:** Pydantic
+- **Asynchronous Programming:** AsyncIO
+
+---
+
+## 🎨 Frontend
 
 - React
-- JavaScript
+- JavaScript (ES6+)
 - HTML5
 - CSS3
-- React Scripts
 
 ---
 
-## AI & LLM
+## 🤖 AI & Agent Framework
 
-- Google Gemini API
+- Google Gemini 2.5 Flash
+- Google Gemini Embeddings
 - LangChain
 - LangGraph
-- Multi-Agent Workflow
+- Agentic AI
+- Multi-Agent Architecture
+- Model Context Protocol (MCP)
 - Tool Calling
-- Prompt Engineering
 
 ---
 
-## DevOps
+## 📚 Retrieval & Search
+
+- Retrieval-Augmented Generation (RAG)
+- Corrective RAG (CRAG)
+- FAISS Vector Database
+- Semantic Search
+- Query Rewriting
+- Hybrid Retrieval
+- DuckDuckGo Search
+- Recursive Character Text Splitter
+- PyPDFLoader
+
+---
+
+## 🔌 MCP Tool Servers
+
+- FastMCP Math Server
+- Expense Tracker MCP Server
+
+---
+
+## 💾 Database & Memory
+
+- SQLite
+- AIOSQLite
+- LangGraph AsyncSqliteSaver
+- Persistent Conversation Memory
+
+---
+
+## ☁️ DevOps & Deployment
 
 - Docker
 - Docker Compose
@@ -131,53 +177,27 @@ The application follows a **full-stack architecture** with:
 
 ---
 
-## Database
-
-- SQLite
-
----
-
-## Tools
+## 🛠️ Development Tools
 
 - VS Code
 - Postman
-- GitHub
 - Docker Desktop
-
----
-
-# 📂 Project Structure
-
-```
-Aether-OS
-│
-├── main.py
-├── be_new.py
-├── requirements.txt
-├── Dockerfile.backend
-├── docker-compose.yml
-│
-├── aether-os
-│   ├── src
-│   ├── public
-│   ├── package.json
-│   └── Dockerfile.frontend
-│
-├── chatbot.db
-│
-└── docs
-    ├── app-home.png
-    ├── fastapi-docs.png
-    ├── docker-compose-ps.png
-    ├── ec2-instance.png
-    └── architecture.png
-```
-
----
 
 # 🚀 Getting Started
 
-## Clone Repository
+## Prerequisites
+
+Before running the project, make sure you have the following installed:
+
+- Python 3.10+
+- Node.js 18+
+- Docker
+- Docker Compose
+- Git
+
+---
+
+## Clone the Repository
 
 ```bash
 git clone https://github.com/LikhitGaikwad/Aether-OS.git
@@ -187,77 +207,9 @@ cd Aether-OS
 
 ---
 
-## Docker Deployment
+## Configure Environment Variables
 
-```bash
-docker compose up --build
-```
-
----
-
-## Frontend
-
-```
-http://localhost:3000
-```
-
----
-
-## Backend
-
-```
-http://localhost:8000
-```
-
----
-
-## API Documentation
-
-```
-http://localhost:8000/docs
-```
-
----
-
-# ☁ Cloud Deployment
-
-The application has been deployed on **AWS EC2** using Docker Compose.
-
-Deployment includes:
-
-- Ubuntu 24.04 LTS
-- Docker
-- Docker Compose
-- FastAPI
-- React
-- SQLite
-- AWS Security Groups
-- REST API
-
----
-
-# 🔄 Deployment Workflow
-
-```
-GitHub
-    │
-    ▼
-AWS EC2
-    │
-Docker Compose
-    │
- ├── Frontend Container
- └── Backend Container
-          │
-          ▼
-     SQLite Database
-```
-
----
-
-# 🔑 Environment Variables
-
-Create a `.env`
+Create a `.env` file in the project root and add your Google Gemini API key.
 
 ```env
 GOOGLE_API_KEY=YOUR_API_KEY
@@ -265,21 +217,21 @@ GOOGLE_API_KEY=YOUR_API_KEY
 
 ---
 
-# 📦 Docker
+## Run Using Docker (Recommended)
 
-Build
-
-```bash
-docker compose build
-```
-
-Run
+Build and start all services:
 
 ```bash
-docker compose up
+docker compose up --build
 ```
 
-Stop
+To run in detached mode:
+
+```bash
+docker compose up -d
+```
+
+Stop the application:
 
 ```bash
 docker compose down
@@ -287,18 +239,172 @@ docker compose down
 
 ---
 
+## Access the Application
+
+| Service | URL |
+|----------|-----|
+| React Frontend | http://localhost:3000 |
+| FastAPI Backend | http://localhost:8000 |
+| Swagger API Docs | http://localhost:8000/docs |
+| ReDoc Documentation | http://localhost:8000/redoc |
+
+---
+
+## Running Without Docker (Optional)
+
+### Backend
+
+```bash
+pip install -r requirements.txt
+
+python be_new.py
+```
+
+### Frontend
+
+```bash
+cd aether-os
+
+npm install
+
+npm start
+```
+
+The frontend will be available at:
+
+```
+http://localhost:3000
+```
+
+The backend will be available at:
+
+```
+http://localhost:8000
+```
+
+# ☁️ AWS EC2 Deployment
+
+Aether-OS is deployed on an **AWS EC2 Ubuntu instance** using **Docker Compose**, enabling consistent, containerized deployment of both the frontend and backend.
+
+---
+
+## Deployment Stack
+
+- ☁️ AWS EC2
+- 🐧 Ubuntu 24.04 LTS
+- 🐳 Docker
+- 🐳 Docker Compose
+- ⚡ FastAPI
+- 🎨 React
+- 💾 SQLite
+- 🔐 AWS Security Groups
+
+---
+
+## Deployment Workflow
+
+```text
+                GitHub Repository
+                       │
+                       ▼
+             AWS EC2 (Ubuntu 24.04)
+                       │
+              Docker Compose
+                       │
+        ┌──────────────┴──────────────┐
+        │                             │
+        ▼                             ▼
+Frontend Container            Backend Container
+   (React)                (FastAPI + LangGraph)
+                                      │
+                                      ▼
+                           Google Gemini API
+                                      │
+                                      ▼
+                          SQLite Conversation DB
+```
+
+---
+
+## Deployment Steps
+
+1. Launch an AWS EC2 Ubuntu instance.
+2. Install Docker and Docker Compose.
+3. Clone the GitHub repository.
+4. Configure the `.env` file with the Google Gemini API key.
+5. Build and start the containers using Docker Compose.
+6. Configure AWS Security Groups to allow ports **3000** and **8000**.
+7. Access the application through the EC2 public IP.
+
+---
+
+## Docker Commands
+
+Build the application
+
+```bash
+docker compose build
+```
+
+Start the application
+
+```bash
+docker compose up -d
+```
+
+View running containers
+
+```bash
+docker ps
+```
+
+View logs
+
+```bash
+docker compose logs -f
+```
+
+Stop the application
+
+```bash
+docker compose down
+```
+
+# 📖 API Documentation
+
+FastAPI automatically generates interactive API documentation.
+
+Access it at:
+
+- **Swagger UI:** http://localhost:8000/docs
+- **ReDoc:** http://localhost:8000/redoc
+
+The API supports:
+
+- AI Chat
+- PDF Upload
+- RAG-based Question Answering
+- Tool Calling via MCP
+- Conversation Management
+- Health Check
+
 # 📈 Future Improvements
 
-- Authentication
-- User Accounts
+- User Authentication
 - PostgreSQL Integration
 - Redis Caching
-- Vector Database
-- RAG Pipeline
 - Streaming Responses
-- CI/CD using GitHub Actions
+- CI/CD with GitHub Actions
 - Kubernetes Deployment
 - HTTPS with Nginx
-- Domain Hosting
+- Multi-LLM Support
+- Voice Assistant
+- Multi-modal AI
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
 
 ---
