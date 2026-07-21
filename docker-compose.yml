@@ -10,7 +10,7 @@ services:
     volumes:
       - ./chatbot.db:/app/chatbot.db
     environment:
-      - GOOGLE_API_KEY=AIzaSyA_SvS5dIijAa-uIbzd4WsCqFzctedicso
+      - GOOGLE_API_KEY="your_key_here"
 
   frontend:
     build:
