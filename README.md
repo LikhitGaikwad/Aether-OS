@@ -83,32 +83,6 @@ The application follows a **full-stack architecture** with:
  Persistent Chat Memory
 ```
 
-## 🖥️ Application
-
-<p align="center">
-  <img src="aether-os/Deployment/app-home.png" width="900">
-</p>
-
-## 📚 FastAPI API Documentation
-
-<p align="center">
-  <img src="aether-os/Deployment/fastapi-docs.png" width="900">
-</p>
-
-## 🐳 Docker Containers
-
-<p align="center">
-  <img src="aether-os/Deployment/docker-ps.png" width="900">
-</p>
-
-## ☁️ AWS EC2 Deployment
-
-<p align="center">
-  <img src="aether-os/Deployment/ec2-instance.png" width="900">
-</p>
-
----
-
 # ⚙ Tech Stack
 
 ## Backend
