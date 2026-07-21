@@ -11,7 +11,7 @@ services:
       - ./chatbot.db:/app/chatbot.db
     environment:
       - GOOGLE_API_KEY="your_key_here"
-
+    restart: unless-stopped
   frontend:
     build:
       context: C:\Users\Likhit Gaikwad\Desktop\aether-os
